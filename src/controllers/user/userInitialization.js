@@ -13,6 +13,7 @@ const userRegister = async(req,res,next) => {
     else{
         logger.info(`valid data`);
         await addUser.insertUserDetails(req.body,(result)=>{
+          console.log("res to add user...",result);
             if(result.status === 400){
                 res.statusCode = result.status,
                 res.send(result.data.message);
