@@ -1,9 +1,9 @@
 const http = require('http');
 const mongoose = require('mongoose');
 const app = require('../index.js');
-const Logger = require('../config/console');
-const logger = new Logger().log();
-require('../config/db');
+//const Logger = require('../config/console');
+//const logger = new Logger().log();
+//require('../config/db');
 
 // Normalize a port into a number, string, or false.
 function normalizePort(val) {
@@ -28,11 +28,11 @@ function onError(error) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      logger.error(`${bind} requires elevated privileges`);
+     // logger.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      logger.error(`${bind} is already in use`);
+      //logger.error(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
@@ -51,36 +51,36 @@ const server = http.createServer(app);
 server.listen(port, host);
 server.on('error', onError);
 server.on('listening', () => {
-  logger.info(`Server started on ${new Date()}`);
-  logger.info(
-    `server is running at http://${server.address().address}:${
-      server.address().port
-    }`,
-  );
-  logger.info(process.env.NODE_ENV);
+  // logger.info(`Server started on ${new Date()}`);
+  // logger.info(
+  //   `server is running at http://${server.address().address}:${
+  //     server.address().port
+  //   }`,
+  // );
+  // logger.info(process.env.NODE_ENV);
 });
 
 process.on('unhandledRejection', (err, promise) => {
-  logger.error(
-    'Unhandled rejection (promise: ',
-    promise,
-    ', reason: ',
-    err,
-    ').',
-  );
+  // logger.error(
+  //   'Unhandled rejection (promise: ',
+  //   promise,
+  //   ', reason: ',
+  //   err,
+  //   ').',
+  // );
 });
 
 process.on('uncaughtException', (err, reason) => {
-  logger.error('Uncaught Exception: ', reason, ', reason: ', err, ').');
+ // logger.error('Uncaught Exception: ', reason, ', reason: ', err, ').');
 });
 
 const closeAllConnections = async () => {
   server.close(() => {
-    logger.info('Http server closed.');
+    //logger.info('Http server closed.');
   });
   //   await mongoose.connection.close();
   await mongoose.disconnect();
-  logger.info('MongoDb connection closed.');
+  //logger.info('MongoDb connection closed.');
 };
 
 process.on('SIGTERM', () => {
@@ -91,5 +91,5 @@ process.on('SIGINT', () => {
 });
 
 process.on('exit', () => {
-  logger.info('--------------------App closed-----------------------');
+  //logger.info('--------------------App closed-----------------------');
 });
