@@ -8,3 +8,4 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"\tConnected to Database ","requestId":null,"timestamp":"Oct-18-2021 16:30:32"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\tserver is running at http://0.0.0.0:8081 ","requestId":null,"timestamp":"Oct-18-2021 16:30:32"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\tundefined ","requestId":null,"timestamp":"Oct-18-2021 16:30:32"}
+{"level":"\u001b[31merror\u001b[39m","message":"\tRequested API route is not found ","requestId":null,"timestamp":"Oct-18-2021 16:30:45"}
