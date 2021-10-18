@@ -1,6 +1,7 @@
 const express = require('express');
 const Route = require('./src/routes/index');
 const cors = require('cors');
+const { consoleLogger } = require('./src/middlewares/logger');
 
 // Initializing express app
 const app = express();
@@ -28,7 +29,7 @@ app.get('/', (req, res) => {
 });
 
 // For Logging
-//app.use(consoleLogger);
+app.use(consoleLogger);
 
 app.use('/api', Route);
 
